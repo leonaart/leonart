@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leonart - Kompozit Deck & Montaj</title>
+<style>
+  body { margin:0; font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color:#333; }
+  header { background:#eee; padding:20px 0; text-align:center; }
+  .logo { font-size:2rem; font-weight:bold; color:#444; background:#fff; display:inline-block; padding:10px 20px; border-radius:10px; }
+  h1,h2,h3 { margin:0 0 10px 0; }
+  section { padding:40px 20px; max-width:900px; margin:auto; }
+  .packages { display:flex; flex-wrap:wrap; gap:20px; justify-content:center; }
+  .package { background:#fff; padding:20px; border-radius:10px; box-shadow:0 2px 6px rgba(0,0,0,0.1); width:250px; }
+  .package h3 { margin-bottom:5px; color:#5a3e1b; }
+  .package p { font-weight:bold; color:#333; }
+  .package ul { list-style: none; padding-left:0; color:#555; }
+  form { background:#fff; padding:20px; border-radius:10px; box-shadow:0 2px 6px rgba(0,0,0,0.1); max-width:500px; margin:auto; }
+  form input, form textarea, form select { width:100%; padding:10px; margin:8px 0; border-radius:5px; border:1px solid #ccc; }
+  form button { background:#5a3e1b; color:#fff; border:none; padding:12px 20px; border-radius:5px; cursor:pointer; font-size:1rem; }
+  footer { text-align:center; padding:20px 0; color:#777; font-size:0.9rem; background:#eee; }
+  @media(max-width:600px){ .packages { flex-direction:column; align-items:center; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">LA</div>
+  <h1>Leonart — Kompozit Deck & Montaj</h1>
+</header>
+
+<section>
+  <h2>Kompozit deck — dayanıklı, bakımı kolay, şık.</h2>
+  <p>Bahçe, balkon veya terasınız için metrekaresine göre hızlı montaj ve şeffaf fiyatlandırma. Ücretsiz keşif talep edin.</p>
+</section>
+
+<section class="packages">
+  <div class="package">
+    <h3>Temel Paket</h3>
+    <p>₺4.000 / m²</p>
+    <ul>
+      <li>Kompozit deck (standart kalınlık)</li>
+      <li>Montaj (1 gün içinde)</li>
+      <li>2 yıl garanti</li>
+    </ul>
+  </div>
+  <div class="package">
+    <h3>Pro Paket</h3>
+    <p>₺5.500 / m²</p>
+    <ul>
+      <li>Üst düzey kompozit + ahşap kombini</li>
+      <li>Montaj (özelleştirilmiş)</li>
+      <li>5 yıl garanti</li>
+      <li>Temel bakım kiti</li>
+    </ul>
+  </div>
+  <div class="package">
+    <h3>Premium Paket</h3>
+    <p>Teklif ile</p>
+    <ul>
+      <li>Özel profil & renk seçenekleri</li>
+      <li>Hızlı termin</li>
+      <li>Uzun dönem garanti & bakım sözleşmesi</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2>Keşif Formu</h2>
+  <form action="mailto:cumakiraz@gmail.com" method="post" enctype="text/plain">
+    <input type="text" name="name" placeholder="İsim" required>
+    <input type="email" name="email" placeholder="E-posta" required>
+    <input type="text" name="phone" placeholder="Telefon">
+    <input type="text" name="address" placeholder="Adres (Mahalle / İlçe)">
+    <input type="text" name="area" placeholder="Alan (m²)">
+    <select name="material">
+      <option>Kompozit</option>
+      <option>Kompozit + Ahşap</option>
+      <option>Ahşap (doğal)</option>
+    </select>
+    <input type="text" name="budget" placeholder="Bütçe (örn. ₺)">
+    <input type="text" name="timeline" placeholder="Zaman Çizelgesi (örn. 2 hafta)">
+    <textarea name="notes" placeholder="Ek notlar / fotoğraf linki / ölçüler"></textarea>
+    <button type="submit">Formu Gönder</button>
+  </form>
+</section>
+
+<footer>
+  © 2025 Leonart — Kompozit Deck & Montaj
+</footer>
+
+</body>
+</html>
