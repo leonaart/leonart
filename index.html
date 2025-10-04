@@ -6,16 +6,16 @@
   <title>Leonart - Ahşap Kompozit Deck</title>
   <style>
     body {
+      font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      font-family: Arial, sans-serif;
       background: #111;
       color: #fff;
     }
     header {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 20px;
       text-align: center;
-      background: #222;
-      padding: 40px 20px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.5);
     }
     header h1 {
@@ -23,10 +23,12 @@
       font-size: 2.5em;
     }
     header p {
-      margin: 10px 0;
+      margin: 5px 0;
+      font-size: 1.2em;
       color: #d4a373;
     }
 
+    /* GÖRSELLER */
     .gallery {
       display: flex;
       flex-wrap: wrap;
@@ -34,7 +36,7 @@
       align-items: center;
       gap: 20px;
       padding: 40px 20px;
-      background: #000;
+      background-color: #000;
     }
     .gallery img {
       width: 45%;
@@ -47,11 +49,36 @@
       transform: scale(1.05);
     }
 
-    footer {
-      text-align: center;
+    /* FORM */
+    .container {
+      max-width: 600px;
+      margin: 40px auto;
+      background: rgba(0, 0, 0, 0.7);
       padding: 20px;
-      background: #111;
-      color: #aaa;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    }
+    form input, form select, form textarea, form button {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 5px;
+    }
+    form button {
+      background-color: #d4a373;
+      color: #fff;
+      font-size: 1.1em;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    form button:hover {
+      background-color: #b5835a;
+    }
+    .contact-info {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 1.1em;
     }
   </style>
 </head>
@@ -62,13 +89,46 @@
     <p>M² fiyat için teklif alın 📞 0532 575 50 74</p>
   </header>
 
+  <!-- 🔥 FOTOĞRAFLAR BURADA -->
   <section class="gallery">
-    <img src="./IMG-20220205-WA0000.jpg" alt="Deck 1">
-    <img src="./IMG-20230120-WA0024.jpg" alt="Deck 2">
+    <img src="./IMG-20220205-WA0000.jpg" alt="Deck Uygulama 1">
+    <img src="./IMG-20230120-WA0024.jpg" alt="Deck Uygulama 2">
   </section>
 
-  <footer>
-    <p>© Leonart</p>
-  </footer>
+  <!-- FORM -->
+  <div class="container">
+    <h2>Keşif ve Teklif Formu</h2>
+    <form onsubmit="sendEmail(event)">
+      <input type="text" name="name" placeholder="Ad Soyad" required>
+      <input type="tel" name="phone" placeholder="Telefon" required>
+      <input type="number" name="area" placeholder="Alan (m²)">
+      <select name="type">
+        <option>Bahçe</option>
+        <option>Teras / Balkon</option>
+        <option>Ticari</option>
+        <option>Diğer</option>
+      </select>
+      <textarea name="address" placeholder="Adres / Notlar"></textarea>
+      <button type="submit">Gönder</button>
+    </form>
+  </div>
+
+  <div class="contact-info">
+    <p>Tüm başvurular <b>cumakiraz@gmail.com</b> adresine iletilecektir.</p>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script>
+    (function() {
+      emailjs.init("QopyiLNzDwNZu0Wg2");
+    })();
+
+    function sendEmail(event) {
+      event.preventDefault();
+      emailjs.sendForm('service_f9kplx9', 'template_2jh6r2l', event.target)
+        .then(() => alert('Talebiniz başarıyla gönderildi! ✅'))
+        .catch(error => alert('Bir hata oluştu: ' + JSON.stringify(error)));
+    }
+  </script>
 </body>
 </html>
