@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Leonart - Ahşap Kompozit Deck</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: url('https://www.timbertech.com/wp-content/uploads/2022/09/decking-boards-pattern.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+    }
+    header {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 20px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+    }
+    header p {
+      margin: 5px 0;
+      font-size: 1.2em;
+    }
+    .container {
+      max-width: 600px;
+      margin: 40px auto;
+      background: rgba(0, 0, 0, 0.7);
+      padding: 20px;
+      border-radius: 10px;
+    }
+    form input, form select, form textarea, form button {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 5px;
+    }
+    form button {
+      background-color: #d4a373;
+      color: #fff;
+      font-size: 1.1em;
+      cursor: pointer;
+    }
+    form button:hover {
+      background-color: #b5835a;
+    }
+    .contact-info {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 1.1em;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Leonart</h1>
+    <p>Ahşap Kompozit Deck Sistemleri</p>
+    <p>M² fiyat için teklif alın 📞 0532 575 50 74</p>
+  </header>
+
+  <div class="container">
+    <h2>Keşif ve Teklif Formu</h2>
+    <form onsubmit="sendEmail(event)">
+      <input type="text" name="name" placeholder="Ad Soyad" required>
+      <input type="tel" name="phone" placeholder="Telefon" required>
+      <input type="number" name="area" placeholder="Alan (m²)">
+      <select name="type">
+        <option>Bahçe</option>
+        <option>Teras / Balkon</option>
+        <option>Ticari</option>
+        <option>Diğer</option>
+      </select>
+      <textarea name="address" placeholder="Adres / Notlar"></textarea>
+      <button type="submit">Gönder</button>
+    </form>
+  </div>
+
+  <div class="contact-info">
+    <p>Tüm başvurular <b>cumakiraz@gmail.com</b> adresine iletilecektir.</p>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script>
+    (function() {
+      emailjs.init("QopyiLNzDwNZu0Wg2"); // Public Key
+    })();
+
+    function sendEmail(event) {
+      event.preventDefault();
+      emailjs.sendForm('service_f9kplx9', 'template_2jh6r2l', event.target)
+        .then(function() {
+          alert('Talebiniz başarıyla gönderildi! ✅');
+        }, function(error) {
+          alert('Bir hata oluştu: ' + JSON.stringify(error));
+        });
+    }
+  </script>
+</body>
+</html>
