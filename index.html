@@ -1,116 +1,58 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Leonart - Ahşap Kompozit Deck</title>
   <style>
-    :root {
-      --accent: #d4a373;
-      --bg: #0f0f0f;
-      --card: rgba(255,255,255,0.03);
-      --gap: 18px;
-      --placeholder-height: 220px; /* düzenleyebilirsin */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: #fff;
     }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family: "Segoe UI", Roboto, Arial, sans-serif;
-      background: linear-gradient(180deg,#0b0b0b,#141414);
-      color:#fff;
+    header {
+      text-align: center;
+      background: #222;
+      padding: 40px 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
     }
-    header{
-      text-align:center;
-      padding:36px 20px;
-      background: rgba(0,0,0,0.45);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
     }
-    header h1{margin:0;font-size:2.6rem}
-    header p{margin:6px 0;color:var(--accent)}
-
-    /* GALERİ: soldaki resim 2 satır kaplar; sağ sütun üstte boş yer, altta yatay resim */
-    .gallery{
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--gap);
-      padding: 36px 20px;
-      max-width: 1100px;
-      margin: 0 auto;
-      align-items: start;
+    header p {
+      margin: 10px 0;
+      color: #d4a373;
     }
 
-    .left {
-      grid-column: 1;
-      grid-row: 1 / span 2; /* soldakini iki satır boyunca uzat */
-    }
-    .left img {
-      width:100%;
-      height: 100%;
-      max-height: 820px;         /* isteğe göre ayarla */
-      object-fit: cover;
-      display:block;
-      border-radius:12px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-    }
-
-    .right { /* sağ sütun: iki hücre (üst placeholder, alt foto) */
-      grid-column: 2;
+    .gallery {
       display: flex;
-      flex-direction: column;
-      gap: var(--gap);
-      /* bu sütunun yüksekliği soldaki resme göre belirlenecek;
-         justify-content:flex-end ile alt fotoyu alta itiyoruz */
-      justify-content: flex-end;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      padding: 40px 20px;
+      background: #000;
+    }
+    .gallery img {
+      width: 45%;
+      max-width: 500px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+      transition: transform 0.4s ease;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
     }
 
-    .placeholder {
-      min-height: var(--placeholder-height);
-      border-radius:12px;
-      border: 2px dashed rgba(255,255,255,0.06);
-      background: linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
-      display:flex;
-      align-items:center;
-      justify-content:center;
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #111;
       color: #aaa;
-      font-size: 0.95rem;
     }
-
-    .right .bottom-img img{
-      width:100%;
-      max-height: 360px; /* yatay fotonun max yüksekliği */
-      object-fit: cover;
-      display:block;
-      border-radius:12px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-    }
-
-    /* responsive: dar ekranlarda 1 sütuna dön */
-    @media (max-width:880px){
-      .gallery{
-        grid-template-columns: 1fr;
-      }
-      .left{ grid-row: auto; }
-      .right{ justify-content:flex-start; }
-      .placeholder{ min-height: 160px }
-      .right .bottom-img img{ max-height: 260px }
-    }
-
-    /* sayfa altı */
-    .container{
-      max-width:700px;
-      margin:36px auto;
-      padding:24px;
-      background: rgba(255,255,255,0.02);
-      border-radius:12px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.5);
-    }
-    h2{ color:var(--accent); text-align:center; margin-top:0 }
-    input,select,textarea,button{
-      width:100%; padding:10px; margin:10px 0; border-radius:8px; border:0;
-      background:#222; color:#fff; font-size:1rem;
-    }
-    button{ background:var(--accent); font-weight:700; cursor:pointer }
-    footer{ text-align:center; color:#999; padding:18px 0 }
   </style>
 </head>
 <body>
@@ -120,54 +62,13 @@
     <p>M² fiyat için teklif alın 📞 0532 575 50 74</p>
   </header>
 
-  <main>
-    <section class="gallery">
-      <!-- SOL (dikey): iki satır kaplayacak -->
-      <div class="left">
-        <img src="./IMG-20220205-WA0000.jpg" alt="Deck Uygulama 1">
-      </div>
+  <section class="gallery">
+    <img src="./IMG-20220205-WA0000.jpg" alt="Deck 1">
+    <img src="./IMG-20230120-WA0024.jpg" alt="Deck 2">
+  </section>
 
-     <!-- SAĞ ALT: mevcut yatay foto -->
-        <div class="bottom-img">
-          <img src="./d46.jpg" alt="Deck Uygulama 2">
-        </div>
-
-        <!-- SAĞ ALT: mevcut yatay foto -->
-        <div class="bottom-img">
-          <img src="./IMG-20230120-WA0024.jpg" alt="Deck Uygulama 3">
-        </div>
-      </div>
-    </section>
-
-    <div class="container">
-      <h2>Keşif ve Teklif Formu</h2>
-      <form onsubmit="sendEmail(event)">
-        <input type="text" name="name" placeholder="Ad Soyad" required>
-        <input type="tel" name="phone" placeholder="Telefon" required>
-        <input type="number" name="area" placeholder="Alan (m²)">
-        <select name="type">
-          <option>Bahçe</option>
-          <option>Teras / Balkon</option>
-          <option>Ticari</option>
-          <option>Diğer</option>
-        </select>
-        <textarea name="address" placeholder="Adres / Notlar"></textarea>
-        <button type="submit">Gönder</button>
-      </form>
-    </div>
-  </main>
-
-  <footer>© Leonart</footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-  <script>
-    (function(){ emailjs.init("QopyiLNzDwNZu0Wg2"); })();
-    function sendEmail(e){
-      e.preventDefault();
-      emailjs.sendForm('service_f9kplx9','template_2jh6r2l', e.target)
-        .then(()=>alert('Talebiniz gönderildi ✅'))
-        .catch(err=>{ console.error(err); alert('Hata: '+JSON.stringify(err))});
-    }
-  </script>
+  <footer>
+    <p>© Leonart</p>
+  </footer>
 </body>
 </html>
